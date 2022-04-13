@@ -33,7 +33,7 @@ function Bank() {
   useEffect(() => {
     window.addEventListener("beforeunload", safeData);
     function safeData() {
-      // localStorage.setItem("balance", account.balance)
+      localStorage.setItem("balance", account.balance)
     }
     return () => window.removeEventListener("beforeunload", safeData);
   }, [account.balance]);
@@ -49,7 +49,7 @@ function Bank() {
         id="amount"
         placeholder="Enter Amount"
         pattern="[0-9]+"
-        value={account.amount || 0}
+        value={account.amount || ""}
 
       />
       <button onClick={handleWithdrawal} id="widthdrawal">

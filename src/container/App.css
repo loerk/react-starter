@@ -72,9 +72,15 @@ input {
   box-shadow: 20px 20px 60px #bca4a4, -20px -20px 60px #fedede;
 }
 ol {
+  background-color: #f5dcdc;
+  box-shadow: 20px 20px 60px #d0bbbb, -20px -20px 60px #fffdfd;
   margin-top: 5rem;
   max-height: 300px;
   overflow-y: scroll;
+  scrollbar-width: none;
+}
+ol::-webkit-scrollbar {
+  display: none;
 }
 #quote {
   width: 70%;
@@ -82,5 +88,16 @@ ol {
 }
 
 .hide {
+  display: none;
+}
+
+.scrollContainer {
+  height: 500px;
+  margin-bottom: 4rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
   display: none;
 }
