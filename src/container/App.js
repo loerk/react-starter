@@ -1,11 +1,11 @@
 import "./App.css";
 
 import React, { useState } from "react";
-import Bank from "../components/Bank";
-import Quote from "../components/Quote";
-import TodoList from "../components/TodoList";
+import Bank from "../components/bank/Bank";
+import Quote from "../components/quote/Quote";
+import TodoList from "../components/todo/TodoList";
 import Scroll from "../components/Scroll";
-import Weather from "../components/Weather";
+import Weather from "../components/weather/Weather";
 
 function App() {
   const [display, setDisplay] = useState({ todo: false, quote: false, bank: false, weather: false })
