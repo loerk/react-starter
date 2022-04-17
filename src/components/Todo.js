@@ -12,6 +12,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
         value: ""
     })
 
+
     const submitUpdate = value => {
         updateTodo(edit.id, value)
         setEdit({
@@ -20,12 +21,13 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
         })
     }
 
+
     if (edit.id) {
         return <TodoForm edit={edit} onSubmit={submitUpdate} />
     }
     return todos.map((todo, index) => (
         <div className={todo.isComplete ? "todo-row complete" : 'todo-row'} key={index}>
-            <div key={todo.id} onClick={() => completeTodo(todo.id)}>{todo.text}</div>
+            <div className='todo-item'><input checked={todo.isComplete ? true : false} type="checkbox" key={todo.id} onChange={() => completeTodo(todo.id)}></input>{todo.text}</div>
             <div className='icons'>
                 <RiCloseCircleLine onClick={() => removeTodo(todo.id)} className='delete-icon' />
                 <TiEdit onClick={() => setEdit({ id: todo.id, value: todo.text })} className='edit-icon' />

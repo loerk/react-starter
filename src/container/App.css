@@ -1,3 +1,5 @@
+/* ------general styling------- */
+
 * {
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
@@ -22,25 +24,9 @@ h1 {
 
 input,
 button {
-  width: 300px;
+  max-width: 300px;
+  min-width: 200px;
   height: 50px;
-}
-
-.todo-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 1.3rem;
-  width: 400px;
-  padding: 2rem;
-  background-color: #9ab2c9;
-  border: 2px solid black;
-  margin: 1rem auto;
-}
-
-li {
-  text-align: start;
-  padding: 0.5rem;
 }
 
 button {
@@ -64,27 +50,15 @@ input {
   border: none;
   font-size: 1.2rem;
 }
-
+li {
+  list-style-type: none;
+  margin-left: 0;
+}
 .section {
   padding-top: 2rem;
   height: 100vh;
   background: #f5ebeb;
   box-shadow: 20px 20px 60px #bca4a4, -20px -20px 60px #fedede;
-}
-ol {
-  background-color: #f5dcdc;
-  box-shadow: 20px 20px 60px #d0bbbb, -20px -20px 60px #fffdfd;
-  margin-top: 5rem;
-  max-height: 300px;
-  overflow-y: scroll;
-  scrollbar-width: none;
-}
-ol::-webkit-scrollbar {
-  display: none;
-}
-#quote {
-  width: 70%;
-  margin: 0 auto;
 }
 
 .hide {
@@ -100,4 +74,82 @@ ol::-webkit-scrollbar {
 
 .scrollContainer::-webkit-scrollbar {
   display: none;
+}
+
+/* ------todo styling------- */
+
+.todo-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  max-width: 400px;
+  min-width: 200px;
+  padding: 1.3rem;
+  background-color: #9ab2c9;
+  border: 2px solid black;
+  margin: 1rem auto;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+}
+input[type="checkbox"] {
+  height: 1.4rem;
+  min-width: 2rem;
+  margin-right: 1.4rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .icons {
+    font-size: 2.2rem;
+  }
+  .todo-row {
+    padding: 1.2rem;
+  }
+}
+
+.complete {
+  background-color: rgb(169, 216, 187);
+}
+/* ------quote styling------- */
+
+li {
+  text-align: start;
+  padding: 0.5rem;
+}
+
+ol {
+  background-color: #f5dcdc;
+  box-shadow: 20px 20px 60px #d0bbbb, -20px -20px 60px #fffdfd;
+  margin-top: 5rem;
+  max-height: 300px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  padding-left: 1rem;
+}
+ol::-webkit-scrollbar {
+  display: none;
+}
+.quoteContainer {
+  /* border: 1px solid black; */
+  padding: 1rem;
+  margin-block: 1.8rem;
+  background-color: rgb(187, 138, 138);
+  color: white;
+  box-shadow: 20px 20px 60px #d0bbbb, -20px -20px 60px #fffdfd;
+}
+#quote {
+  width: 70%;
+  margin: 0 auto;
+}
+ol li {
+  padding-block: 1.3rem;
+  padding-right: 2rem;
 }

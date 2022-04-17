@@ -30,7 +30,7 @@ function App() {
       <div id="navigation">
 
         <button onClick={showToDo} id="showToDo">
-          Create your ToDo-List
+          create your ToDo-List
         </button>
         <button onClick={showQuote} id="showDone">
           get a Quote of the day

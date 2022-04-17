@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 
+
 function TodoList() {
 
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [])
 
     const addTodo = (todo) => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -13,7 +14,6 @@ function TodoList() {
 
         const newTodos = [todo, ...todos]
         setTodos(newTodos);
-        //i am not able to store the items in local storage
 
     }
 
@@ -41,11 +41,22 @@ function TodoList() {
             return todo
         })
         setTodos(updatedTodos)
+
+
     }
+
+    useEffect(() => {
+        window.addEventListener("beforeunload", safeData);
+        function safeData() {
+            localStorage.setItem("todos", JSON.stringify(todos))
+        }
+        return () => window.removeEventListener("beforeunload", safeData);
+    }, [todos]);
+
     return (
         <section className='todo-section'>
             <TodoForm onSubmit={addTodo} />
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
+            <Todo className="todo-item" todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
         </section>
     )
 }

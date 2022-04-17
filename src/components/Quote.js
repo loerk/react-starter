@@ -33,11 +33,13 @@ function Quote() {
   return (
     <div id="quote">
       <h2> Get your fresh Developers quote</h2>
-      <p>{quote.en}</p>
-      <p>{quote.author}</p>
+      <div className="quoteContainer">
+        <p>{quote.en}</p>
+        <p>{quote.author}</p>
+      </div>
       <button onClick={changeQuote}>get new Quote</button>
       <button onClick={getQuoteByAuthor}>
-        get more quotes by {quote.author}
+        get more quotes by <br />{quote.author}
       </button>
       <div>
         <ol>
