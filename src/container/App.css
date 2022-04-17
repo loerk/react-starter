@@ -78,7 +78,8 @@ li {
 
 /* ------todo styling------- */
 
-.todo-row {
+.todo-row,
+.alertbox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -138,7 +139,6 @@ ol::-webkit-scrollbar {
   display: none;
 }
 .quoteContainer {
-  /* border: 1px solid black; */
   padding: 1rem;
   margin-block: 1.8rem;
   background-color: rgb(187, 138, 138);
@@ -152,4 +152,11 @@ ol::-webkit-scrollbar {
 ol li {
   padding-block: 1.3rem;
   padding-right: 2rem;
+}
+
+/* ------weather------- */
+
+.alertbox {
+  margin-top: 3rem;
+  background-color: rgb(193, 221, 32);
 }
