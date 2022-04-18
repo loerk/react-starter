@@ -34,6 +34,7 @@ button {
   background: #ddc1c1;
   box-shadow: 20px 20px 60px #bca4a4, -20px -20px 60px #fedede;
   margin: 0.5rem;
+  margin-top: 2rem;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -54,6 +55,10 @@ li {
   list-style-type: none;
   margin-left: 0;
 }
+
+.landingImage {
+  max-width: 70rem;
+}
 .section {
   padding-top: 2rem;
   height: 100vh;
@@ -67,7 +72,7 @@ li {
 
 .scrollContainer {
   height: 500px;
-  margin-bottom: 4rem;
+  margin-block: 4rem;
   overflow-y: scroll;
   scrollbar-width: none;
 }

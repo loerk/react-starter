@@ -55,6 +55,7 @@ function TodoList() {
 
     return (
         <section className='todo-section'>
+            <h2>Fill your To-Do List</h2>
             <TodoForm onSubmit={addTodo} />
             <Todo className="todo-item" todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
         </section>

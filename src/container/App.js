@@ -1,27 +1,13 @@
 import "./App.css";
 
 import React, { useState } from "react";
-import Bank from "../components/bank/Bank";
-import Quote from "../components/quote/Quote";
-import TodoList from "../components/todo/TodoList";
 import Scroll from "../components/Scroll";
-import Weather from "../components/weather/Weather";
+import { Section } from "../components/selectSection/section";
 
 function App() {
-  const [display, setDisplay] = useState({ todo: false, quote: false, bank: false, weather: false })
+  const [page, setPage] = useState("")
 
-  const showToDo = () => {
-    setDisplay({ todo: true, quote: false, bank: false, weather: false })
-  };
-  const showBank = () => {
-    setDisplay({ todo: false, quote: false, bank: true, weather: false })
-  };
-  const showQuote = () => {
-    setDisplay({ todo: false, quote: true, bank: false, weather: false })
-  };
-  const showWeather = () => { setDisplay({ todo: false, quote: false, bank: false, weather: true }) }
-
-
+  console.log(page)
 
   return (
     <div>
@@ -31,33 +17,23 @@ function App() {
       </header>
       <div id="navigation">
 
-        <button onClick={showToDo} id="showToDo">
+        <button onClick={() => { setPage("TODO") }}>
           create your ToDo-List
         </button>
-        <button onClick={showQuote} id="showQuote">
+        <button onClick={() => { setPage("QUOTE") }}>
           get a Quote of the day
         </button>
-        <button onClick={showBank} id="showBank">
+        <button onClick={() => { setPage("BANK") }}>
           check your bank account
         </button>
-        <button onClick={showWeather} id="showWeather">
+        <button onClick={() => { setPage("WEATHER") }}>
           check the weather
         </button>
       </div>
       <Scroll>
-        <main className={!display.todo && !display.quote && !display.bank && !display.weather ? "hide" : ""}>
-          <div className={!display.todo ? "section section-todo hide" : "section section-todo"}>
-            <h2>Fill your To-Do List</h2>
-            <TodoList />
-          </div>
-          <div className={!display.quote ? "section section-quote hide" : "section section-quote"}>
-            <Quote />
-          </div>
-          <div className={!display.bank ? "section section-bank hide" : "section section-bank"}>
-            <Bank />
-          </div>
-          <div className={!display.weather ? "section section-weather hide" : "section section-weather"}>
-            <Weather />
+        <main >
+          <div>
+            <Section page={page} />
           </div>
         </main>
       </Scroll>

@@ -10,24 +10,23 @@ const Weather = () => {
   const [daily, setDaily] = useState([]);
   const [alert, setAlert] = useState([]);
 
-  // * 1000 weil secunden -> brauche millisec
-
   const getData = async () => {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=52.45&lon=13.43&units=metric&exclude=hourly,minutely&appid=${weatherKey}`
     );
     const data = await response.json();
-    console.log(data);
     const dailyArr = data.daily;
+    const alertsArr = data.alerts;
+
     setDaily(dailyArr);
     setTemp(data.current.temp);
-    const alertsArr = data.alerts;
     setFeelTemp(data.current.feels_like);
+
     if (alertsArr) {
       alertsArr.forEach((item) => setAlert([item.description]));
     }
   };
-  console.log(alert.length);
+
   useEffect(() => {
     getData();
   }, []);
@@ -51,7 +50,6 @@ const Weather = () => {
       </div>
       <div className="alertbox">
         <p>
-          {" "}
           {alert.length === 0
             ? `Lucky, you! Currently no alerts for this region`
             : `Take care: ${alert}`}
