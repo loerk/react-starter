@@ -1,4 +1,3 @@
-import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { WEATHER_API_KEY } from "../../apiKey";
 const weatherKey = WEATHER_API_KEY;
@@ -24,9 +23,11 @@ const Weather = () => {
     setTemp(data.current.temp);
     const alertsArr = data.alerts;
     setFeelTemp(data.current.feels_like);
-    alertsArr.forEach((item) => setAlert([item.description]));
+    if (alertsArr) {
+      alertsArr.forEach((item) => setAlert([item.description]));
+    }
   };
-
+  console.log(alert.length);
   useEffect(() => {
     getData();
   }, []);
@@ -51,9 +52,9 @@ const Weather = () => {
       <div className="alertbox">
         <p>
           {" "}
-          {alert !== []
-            ? `Take care: ${alert}`
-            : "Lucky, you! Currently no alerts for this region"}
+          {alert.length === 0
+            ? `Lucky, you! Currently no alerts for this region`
+            : `Take care: ${alert}`}
         </p>
       </div>
       <h2>And thats what the future brings: </h2>
