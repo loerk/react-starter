@@ -1,3 +1,4 @@
+import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { WEATHER_API_KEY } from "../../apiKey";
 const weatherKey = WEATHER_API_KEY;
@@ -7,7 +8,9 @@ const Weather = () => {
   const [feelTemp, setFeelTemp] = useState("");
   const [hide, setHide] = useState(true);
   const [city, setCity] = useState({ name: "Berlin", long: "", lat: "" });
+  const [daily, setDaily] = useState([]);
   const [alert, setAlert] = useState([]);
+
   // * 1000 weil secunden -> brauche millisec
 
   const getData = async () => {
@@ -16,8 +19,10 @@ const Weather = () => {
     );
     const data = await response.json();
     console.log(data);
+    const dailyArr = data.daily;
+    setDaily(dailyArr);
     setTemp(data.current.temp);
-    let alertsArr = data.alerts;
+    const alertsArr = data.alerts;
     setFeelTemp(data.current.feels_like);
     alertsArr.forEach((item) => setAlert([item.description]));
   };
@@ -50,6 +55,29 @@ const Weather = () => {
             ? `Take care: ${alert}`
             : "Lucky, you! Currently no alerts for this region"}
         </p>
+      </div>
+      <h2>And thats what the future brings: </h2>
+      <div className="forecast-box">
+        {daily.map((days) => {
+          let date = new Date(days.dt * 1000);
+          let dateArr = date.toString().split(" ");
+          let dayWord = dateArr[0];
+          let dayDate = dateArr[2];
+          let month = dateArr[1];
+          let temp = days.temp;
+          let maxTemp = temp.max;
+          let minTemp = temp.min;
+
+          return (
+            <div className="forecast-item">
+              <h2>
+                {dayWord} {dayDate} {month}{" "}
+              </h2>
+              <p>Max: {maxTemp} Celsius</p>
+              <p>Min: {minTemp} Celsius</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
