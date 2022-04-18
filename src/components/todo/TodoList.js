@@ -6,6 +6,7 @@ import TodoForm from './TodoForm'
 function TodoList() {
 
     const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [])
+    const [filter, setFilter] = useState("ALL")
 
     const addTodo = (todo) => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -58,11 +59,11 @@ function TodoList() {
             <h2>Fill your To-Do List</h2>
             <TodoForm onSubmit={addTodo} />
             <div>
-                <button onClick={() => { setTodos(todos.filter(todo => todo.isComplete)) }}>Done</button>
-                <button onClick={() => { setTodos(todos.filter(todo => !todo.isComplete)) }}>Open</button>
-                <button >All</button>
+                <button onClick={() => setFilter("DONE")}>Done</button>
+                <button onClick={() => setFilter("OPEN")}>Open</button>
+                <button onClick={() => setFilter("ALL")} >All</button>
             </div>
-            <Todo className="todo-item" todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
+            <Todo filter={filter} className="todo-item" todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
 
         </section>
     )
