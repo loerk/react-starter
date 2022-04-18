@@ -15,19 +15,13 @@ function App() {
         <h2>You have many options. choose wisely:</h2>
       </header>
       <div id="navigation">
-
-        <button onClick={() => { setPage("TODO") }}>
-          create your ToDo-List
-        </button>
-        <button onClick={() => { setPage("QUOTE") }}>
-          get a Quote of the day
-        </button>
-        <button onClick={() => { setPage("BANK") }}>
-          check your bank account
-        </button>
-        <button onClick={() => { setPage("WEATHER") }}>
-          check the weather
-        </button>
+        {[{ pageType: "TODO", title: "create your ToDo-List" }, { pageType: "QUOTE", title: "get a Quote of the day" }, { pageType: "WEATHER", title: "check the weather" }, { pageType: "BANK", title: "check your bank account" }].map(({ pageType, title }) =>
+        (
+          <button key={pageType} onClick={() => { setPage(pageType) }}>
+            {title}
+          </button>
+        )
+        )}
       </div>
       <Scroll>
         <main >
