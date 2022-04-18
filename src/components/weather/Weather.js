@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { WEATHER_API_KEY } from "../../apiKey";
-const weatherKey = WEATHER_API_KEY;
+
+const weatherKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const Weather = () => {
   const [temp, setTemp] = useState("");

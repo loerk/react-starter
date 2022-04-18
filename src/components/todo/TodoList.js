@@ -57,7 +57,13 @@ function TodoList() {
         <section className='todo-section'>
             <h2>Fill your To-Do List</h2>
             <TodoForm onSubmit={addTodo} />
+            <div>
+                <button onClick={() => { setTodos(todos.filter(todo => todo.isComplete)) }}>Done</button>
+                <button onClick={() => { setTodos(todos.filter(todo => !todo.isComplete)) }}>Open</button>
+                <button >All</button>
+            </div>
             <Todo className="todo-item" todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo} />
+
         </section>
     )
 }

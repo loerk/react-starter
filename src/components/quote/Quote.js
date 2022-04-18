@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { IoIosArrowDown } from 'react-icons/io'
 
 function Quote() {
   const [quote, setQuote] = useState([]);
   const [quotes, setQuotes] = useState([]);
+  const [arrow, setArrow] = useState(false)
 
   function getData() {
     fetch("https://programming-quotes-api.herokuapp.com/Quotes/random")
@@ -19,6 +21,7 @@ function Quote() {
   };
 
   const getQuoteByAuthor = async () => {
+    setArrow(true)
     const resp = await fetch(
       `https://programming-quotes-api.herokuapp.com/Quotes/author/${quote.author}`
     );
@@ -34,13 +37,21 @@ function Quote() {
     <div id="quote">
       <h2> Get your fresh Developers quote</h2>
       <div className="quoteContainer">
-        <p>{quote.en}</p>
-        <p>{quote.author}</p>
+        {!quote ? <p>Loading...</p> :
+          <div>
+            <p>{quote.en}</p>
+            <p>{quote.author}</p>
+          </div>
+        }
       </div>
+
       <button onClick={changeQuote}>get new Quote</button>
       <button onClick={getQuoteByAuthor}>
         get more quotes by <br />{quote.author}
       </button>
+      <div>
+        <IoIosArrowDown className={!arrow ? " arrow hide" : "arrow"} />
+      </div>
       <div>
         <ol>
           {quotes.map((item, i) => {

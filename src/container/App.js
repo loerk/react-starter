@@ -7,7 +7,6 @@ import { Section } from "../components/selectSection/section";
 function App() {
   const [page, setPage] = useState("")
 
-  console.log(page)
 
   return (
     <div>
