@@ -6,7 +6,7 @@ const Weather = () => {
   const [temp, setTemp] = useState("");
   const [feelTemp, setFeelTemp] = useState("");
   const [hide, setHide] = useState(true);
-  const [city, setCity] = useState({ name: "Berlin", long: "", lat: "" });
+  const [city] = useState({ name: "Berlin", long: "", lat: "" });
   const [daily, setDaily] = useState([]);
   const [alert, setAlert] = useState([]);
 
