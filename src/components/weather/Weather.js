@@ -54,7 +54,6 @@ const Weather = () => {
       <button
         onClick={() => {
           setShowFeltTemp(!showFeltTemp)
-          //wow works if true/false toggle state
         }}
       >
         wanna know?
