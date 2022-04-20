@@ -9,7 +9,7 @@ function TodoList() {
     const [filter, setFilter] = useState("ALL")
 
     const addTodo = (todo) => {
-        if (!todo.text || /^\s*$/.test(todo.text)) {
+        if (!todo.text) {
             return
         }
 
@@ -19,7 +19,7 @@ function TodoList() {
     }
 
     const updateTodo = (todoId, newValue) => {
-        if (!newValue.text || /^\s*$/.test(newValue.text)) {
+        if (!newValue.text) {
             return
         }
 
@@ -55,7 +55,7 @@ function TodoList() {
     }, [todos]);
 
     return (
-        <section className='todo-section'>
+        <section>
             <h2>Fill your To-Do List</h2>
             <TodoForm onSubmit={addTodo} />
             <div>

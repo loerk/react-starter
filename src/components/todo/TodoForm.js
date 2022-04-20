@@ -1,10 +1,10 @@
 //shortcut rfce
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function TodoForm(props) {
   // shows input if item is on editState
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
-  //to focus inputfields
+  //to focus input fields
   const inputRef = useRef(null);
 
   useEffect(() => {

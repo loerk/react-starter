@@ -41,7 +41,7 @@ function Todo({ filter, todos, completeTodo, removeTodo, updateTodo }) {
             type="checkbox"
             key={todo.id}
             onChange={() => completeTodo(todo.id)}
-          ></input>
+          />
           <label> {todo.text} </label>
         </div>
         <div className="icons">

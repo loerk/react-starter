@@ -1,67 +1,40 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function Bank() {
-  const [account, setAccount] = useState({
-    balance: parseInt(localStorage.getItem("balance")) || 0,
-    amount: "",
-  });
+  const [balance, setBalance] = useState(parseInt(localStorage.getItem("balance")) || 0);
+  const [amount, setAmount] = useState(0)
 
-  const handleInput = (e) => {
-
-    setAccount({
-      balance: account.balance,
-      amount: parseInt(e.target.value),
-    });
-
-  };
 
   const handleWithdrawal = () => {
-    if (account.balance < account.amount || typeof account.amount === 'string') {
-      return
-    }
-    setAccount({
-      balance: account.balance - parseInt(account.amount),
-      amount: "",
-    });
+    setBalance(balance - parseInt(amount));
   };
+
   const handleDeposit = () => {
-    if (typeof account.amount === 'string') {
-      return
-    }
-    setAccount({
-      balance: account.balance + parseInt(account.amount),
-      amount: "",
-    });
+    setBalance(balance + parseInt(amount));
   };
   const reset = () => {
-    setAccount({
-      balance: 0,
-      amount: "",
-    });
+    setBalance(0);
   }
 
   useEffect(() => {
     window.addEventListener("beforeunload", safeData);
+
     function safeData() {
-      localStorage.setItem("balance", account.balance)
+      localStorage.setItem("balance", balance)
     }
     return () => window.removeEventListener("beforeunload", safeData);
-  }, [account.balance]);
+  }, [balance]);
 
   return (
     <div>
       <h2>Check your current Balance</h2>
-      <p>{account.balance || account.balance === 0 ? `Your current balance is ${account.balance}€` : 'Ooops, something went wrong'}</p>
+      <p>{balance || balance === 0 ? `Your current balance is ${balance}€` : 'Ooops, something went wrong'}</p>
       <div>
 
         <input
-          required
-          onChange={handleInput}
-          type="text"
-          name="amount"
-          id="amount"
+          onChange={(e) => setAmount(e.target.value)}
           placeholder="Enter Amount"
-          pattern="[0-9]+"
+          value={amount}
         />
       </div>
       <div>

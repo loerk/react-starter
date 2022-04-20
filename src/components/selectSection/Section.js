@@ -1,12 +1,8 @@
-import React from 'react'
 import TodoList from '../todo/TodoList';
 import Weather from '../weather/Weather';
 import Quote from '../quote/Quote';
 import Bank from '../bank/Bank';
 import background from '../../assets/bgi.jpg'
-
-
-
 
 export function Section({ page }) {
     switch (page) {

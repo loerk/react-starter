@@ -1,8 +1,8 @@
 import "./App.css";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Scroll from "../components/Scroll";
-import { Section } from "../components/selectSection/section";
+import { Section } from "../components/selectSection/Section";
 
 function App() {
   const [page, setPage] = useState("")
@@ -14,7 +14,7 @@ function App() {
         <h1>Welcome to the world of React</h1>
         <h2>You have many options. choose wisely:</h2>
       </header>
-      <div id="navigation">
+      <div>
         {[{ pageType: "TODO", title: "create your ToDo-List" }, { pageType: "QUOTE", title: "get a Quote of the day" }, { pageType: "WEATHER", title: "check the weather" }, { pageType: "BANK", title: "check your bank account" }].map(({ pageType, title }) =>
         (
           <button key={pageType} onClick={() => { setPage(pageType) }}>

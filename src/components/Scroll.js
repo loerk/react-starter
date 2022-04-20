@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Scroll = (props) => {
-    return (
+    return <div className="scrollContainer">{props.children}</div>;
+};
 
-        <div className="scrollContainer" >
-            {props.children}
-        </div>
-    )
-}
-
-export default Scroll
+export default Scroll;
