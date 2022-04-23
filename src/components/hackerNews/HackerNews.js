@@ -25,7 +25,7 @@ function HackerNews() {
 
   useEffect(() => {
     getLatestNews();
-  });
+  }, []);
   console.log(latest);
   if (!latest) {
     return;
