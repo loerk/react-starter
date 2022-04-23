@@ -25,7 +25,7 @@ function HackerNews() {
 
   useEffect(() => {
     getLatestNews();
-  }, []);
+  });
   console.log(latest);
   if (!latest) {
     return;
@@ -36,11 +36,9 @@ function HackerNews() {
         <h2>The freshest News directly out of the Dev Community: </h2>
         <button onClick={getLatestNews}>reFresh</button>
         <ul>
-          {latest.hits.map((item) => {
-            if (item.url) {
-              return <NewsCard item={item} />;
-            }
-          })}
+          {latest.hits.map((item) =>
+            item.url ? <NewsCard item={item} /> : null
+          )}
         </ul>
       </div>
     );
