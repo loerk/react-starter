@@ -3,6 +3,7 @@ import Weather from '../weather/Weather';
 import Quote from '../quote/Quote';
 import Bank from '../bank/Bank';
 import background from '../../assets/bgi.jpg'
+import HackerNews from '../hackerNews/HackerNews';
 
 export function Section({ page }) {
     switch (page) {
@@ -14,6 +15,8 @@ export function Section({ page }) {
             return <Quote />
         case "BANK":
             return <Bank />
+        case "HACKERNEWS":
+            return <HackerNews />
         default:
             return <img src={background} alt='flowers' className='landingImage' />
     }
