@@ -8,7 +8,7 @@ function HackerNews() {
   const currentTimeInSeconds = new Date().getTime() / 1000;
   const lastTwentyFourHoursInSeconds = 86400;
 
-  const getLatestNews = async () => {
+  const getLatestNews = () => {
     fetch(
       `http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=created_at_i>${
         currentTimeInSeconds - lastTwentyFourHoursInSeconds
@@ -25,6 +25,7 @@ function HackerNews() {
 
   useEffect(() => {
     getLatestNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(latest);
   if (!latest) {

@@ -14,15 +14,10 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/onecall?lat=52.45&lon=13.43&units=metric&exclude=hourly,minutely&appid=${weatherKey}`
       );
       const data = await response.json();
-      console.log(data)
-
       setWeatherData(data)
-
-
     } catch (err) {
       console.log(err)
     }
-
   };
 
   useEffect(() => {
