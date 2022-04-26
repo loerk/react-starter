@@ -51,7 +51,7 @@ function TodoList() {
         function safeData() {
             localStorage.setItem("todos", JSON.stringify(todos))
         }
-        return () => window.removeEventListener("beforeunload", safeData);
+
     }, [todos]);
 
     return (

@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { RiSave3Fill } from "react-icons/ri";
 
 function NewsCard({ item }) {
+  const [savedItems, setSavedItems] = useState([]);
+
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem("news"));
+    console.log("useeffect", data);
+    setSavedItems(data);
+  }, []);
+
   const getTime = (dateFromData) => {
     let date = new Date(dateFromData * 1000);
     let hours = date.getHours();
@@ -16,19 +25,21 @@ function NewsCard({ item }) {
     return `| ${currentDate} | ${hours}:${minutes}:${seconds}  |`;
   };
 
-  const safeItem = () => {
-    localStorage.setItem("news", item);
+  const saveItem = (item) => {
+    console.log(savedItems);
+    if (savedItems === null) {
+      return;
+    }
+    let array = [...savedItems, item];
+
+    localStorage.setItem("news", JSON.stringify(array));
+    setSavedItems(array);
   };
 
   return (
     <div className="newsCard">
-      <input
-        checked={item.isSafed}
-        type="checkbox"
-        key={item.ObjectID}
-        onChange={safeItem}
-      />
-      <li key={item.ObjectID}>
+      <li key={item.objectID}>
+        <RiSave3Fill onClick={() => saveItem(item)} />
         <div className="newsCardText">
           <a target="blank" href={item.url}>
             {item.title}
