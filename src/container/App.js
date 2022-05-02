@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Scroll from "../components/Scroll";
 import { Section } from "../components/selectSection/Section";
 import './App.module.css'
 function App() {
