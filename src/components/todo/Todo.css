@@ -1,0 +1,44 @@
+.todo-row,
+.alertbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  max-width: 400px;
+  min-width: 200px;
+  padding: 1.3rem;
+  background-color: #ffffff5d;
+  border: 1px solid black;
+  margin: 1rem auto;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+}
+input[type="checkbox"] {
+  height: 1.4rem;
+  min-width: 2rem;
+  margin-right: 1.4rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .icons {
+    font-size: 2.2rem;
+  }
+  .todo-row {
+    padding: 1.2rem;
+  }
+}
+
+.complete {
+  background-color: rgba(3, 248, 12, 0.596);
+}
+.todo-input {
+  padding: 1rem;
+}

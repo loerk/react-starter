@@ -1,0 +1,42 @@
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.newsCardText {
+  width: 700px;
+}
+
+.savedItem,
+.newsCard {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.377);
+  border: 1px solid black;
+}
+
+.icon {
+  width: 100%;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.deleteIcon:active,
+.icon:active {
+  transform: scale(0.7);
+}
+.deleteIcon {
+  margin-left: auto;
+  font-size: 1.5rem;
+}
+.savedItemIcon {
+  margin-left: auto;
+  font-size: 1.5rem;
+}
+
+.NewsList {
+  padding-bottom: 2rem;
+}

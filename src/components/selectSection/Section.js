@@ -2,8 +2,8 @@ import TodoList from '../todo/TodoList';
 import Weather from '../weather/Weather';
 import Quote from '../quote/Quote';
 import Bank from '../bank/Bank';
-import background from '../../assets/bgi.jpg'
 import HackerNews from '../hackerNews/HackerNews';
+
 
 export function Section({ page }) {
     switch (page) {
@@ -18,7 +18,7 @@ export function Section({ page }) {
         case "HACKERNEWS":
             return <HackerNews />
         default:
-            return <img src={background} alt='flowers' className='landingImage' />
+            return <h2>Welcome to the world of React</h2>
     }
 }
 

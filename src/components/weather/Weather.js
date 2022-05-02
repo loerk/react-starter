@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Weather.css"
 
 
 const weatherKey = process.env.REACT_APP_WEATHER_API_KEY;

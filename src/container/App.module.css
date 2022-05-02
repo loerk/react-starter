@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+body {
+  background: linear-gradient(-45deg, #719de4, #3ce7ae, #237fd5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+nav {
+  width: 250px;
+  display: flex;
+  position: fixed;
+  left: 40px;
+  top: 150px;
+  flex-flow: column;
+  justify-content: space-around;
+}
+h1 {
+  background: transparent;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 1rem;
+  font-weight: bolder;
+  font-size: clamp(3rem, 0.4rem + 5.3333vw, 5rem);
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.5px black;
+}
+
+nav button {
+  border-left: 1px solid black;
+  letter-spacing: 0.2em;
+}
+
+header {
+  border-bottom: 1px solid black;
+  margin-bottom: 3rem;
+  position: fixed;
+  backdrop-filter: blur(14px);
+}
+
+main {
+  padding-top: 150px;
+  width: 70%;
+  margin: 0 auto;
+}

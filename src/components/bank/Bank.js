@@ -27,8 +27,8 @@ function Bank() {
 
   return (
     <div>
-      <h2>Check your current Balance</h2>
-      <p>{balance || balance === 0 ? `Your current balance is ${balance}€` : 'Ooops, something went wrong'}</p>
+      <h2>Check your not very real current Balance</h2>
+      <p>{balance || balance === 0 ? `Your not very real current balance is ${balance}€` : 'Ooops, something went wrong'}</p>
       <div>
 
         <input
