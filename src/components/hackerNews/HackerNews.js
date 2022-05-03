@@ -68,7 +68,7 @@ function HackerNews() {
               ) : null
             )
           : storedItems.map((item) => (
-              <li className="savedItem">
+              <li key={item.objectID} className="savedItem">
                 <a className="savedItemLink" href={item.url}>
                   {item.title}
                 </a>

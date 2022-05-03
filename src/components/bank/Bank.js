@@ -1,52 +1,74 @@
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
+
+const initialState = {
+  balance: 0,
+  amount: 0
+}
+
+function accountReducer(state, action) {
+  switch (action.type) {
+    case "SET_AMOUNT":
+      return {
+        ...state,
+        amount: action.payload,
+      }
+    case "HANDLE_WITHDRAWAL":
+      return {
+        amount: 0,
+        balance: state.balance - state.amount
+      }
+    case "HANDLE_DEPOSIT":
+      return {
+        balance: state.balance + state.amount,
+        amount: 0
+      }
+    case "SET_BALANCE":
+      return {
+        balance: action.payload,
+        ...state
+      }
+    case "RESET":
+      return {
+        balance: 0,
+        ...state
+      }
+
+    default:
+      return state
+
+  }
+}
 
 function Bank() {
-  const [balance, setBalance] = useState(parseInt(localStorage.getItem("balance")) || 0);
-  const [amount, setAmount] = useState(0)
 
+  const [state, dispatch] = useReducer(accountReducer, initialState)
 
-  const handleWithdrawal = () => {
-    setBalance(balance - parseInt(amount));
-  };
-
-  const handleDeposit = () => {
-    setBalance(balance + parseInt(amount));
-  };
-  const reset = () => {
-    setBalance(0);
-  }
 
   useEffect(() => {
-    window.addEventListener("beforeunload", safeData);
+    localStorage.setItem("balance", state.balance)
+  }, [state.balance])
 
-    function safeData() {
-      localStorage.setItem("balance", balance)
-    }
-    return () => window.removeEventListener("beforeunload", safeData);
-  }, [balance]);
+  useEffect(() => {
+    dispatch({ type: "SET_BALANCE", payload: Number(localStorage.getItem("balance")) })
+  }, [])
+
 
   return (
     <div>
       <h2>Check your not very real current Balance</h2>
-      <p>{balance || balance === 0 ? `Your not very real current balance is ${balance}€` : 'Ooops, something went wrong'}</p>
+      <p>{state.balance || state.balance === 0 ? `Your not very real current balance is ${state.balance}€` : 'Ooops, something went wrong'}</p>
       <div>
 
         <input
-          onChange={(e) => setAmount(e.target.value)}
-          placeholder="Enter Amount"
-          value={amount}
+          value={state.amount}
+          onChange={(e) => dispatch({ type: "SET_AMOUNT", payload: parseInt(e.target.value) })}
+          type="text"
         />
+        <button id="deposit" onClick={() => dispatch({ type: "HANDLE_DEPOSIT" })}>Deposit</button>
+        <button id="withdrawal" onClick={() => dispatch({ type: "HANDLE_WITHDRAWAL" })}>Withdrawal</button>
       </div>
       <div>
-        <button onClick={handleWithdrawal} id="widthdrawal">
-          Withdrawal
-        </button>
-        <button onClick={handleDeposit} id="deposit">
-          Deposit
-        </button>
-      </div>
-      <div>
-        <button onClick={reset} id="deposit">
+        <button onClick={() => dispatch({ type: "RESET" })}>
           Reset Account
         </button>
       </div>
