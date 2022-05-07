@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Section } from "../components/selectSection/Section";
+import ScrollContainer from "../components/scrollContainer/ScrollContainer";
 import './App.module.css'
 function App() {
   const [page, setPage] = useState("")
@@ -20,9 +21,11 @@ function App() {
           )
           )}
         </nav>
-        <div>
-          <Section page={page} />
-        </div>
+        <ScrollContainer>
+          <div>
+            <Section page={page} />
+          </div>
+        </ScrollContainer>
       </main>
     </div>
 

@@ -4,8 +4,10 @@ function NewsCard({ item, latestNews, storedItems, setStoredItems }) {
   const getTime = (dateFromData) => {
     let date = new Date(dateFromData * 1000);
     let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
+    let minutes =
+      date.getMinutes() < "10" ? "0" + date.getMinutes() : date.getMinutes();
+    let seconds =
+      date.getSeconds() < "10" ? "0" + date.getSeconds() : date.getSeconds();
     const options = {
       weekday: "long",
       year: "numeric",
@@ -33,7 +35,11 @@ function NewsCard({ item, latestNews, storedItems, setStoredItems }) {
   return (
     <div className="newsCard">
       <li key={item.objectID}>
-        <RiSave3Fill className="icon" onClick={() => saveItem(item)} />
+        <RiSave3Fill
+          className="icon"
+          title="save"
+          onClick={() => saveItem(item)}
+        />
         <div className="newsCardText">
           <a target="blank" href={item.url}>
             {item.title}

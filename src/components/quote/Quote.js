@@ -51,7 +51,7 @@ function Quote() {
         get more quotes by <br />{quote.author}
       </button>
       <div>
-        <IoIosArrowDown className={!arrow ? " arrow hide" : "arrow"} />
+        <IoIosArrowDown onClick={getQuoteByAuthor} className={!arrow ? " arrow hide" : "arrow"} />
       </div>
       <div>
         <ol>

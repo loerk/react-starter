@@ -4,24 +4,28 @@ a {
   cursor: pointer;
   font-weight: bold;
 }
-
-.newsCardText {
-  width: 700px;
+.newsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .savedItem,
 .newsCard {
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 800px;
-  display: flex;
+  padding: 1rem;
   background-color: rgba(255, 255, 255, 0.377);
   border: 1px solid black;
 }
 
+.savedItem {
+  display: flex;
+  justify-content: space-between;
+}
 .icon {
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 .deleteIcon:active,
@@ -29,7 +33,6 @@ a {
   transform: scale(0.7);
 }
 .deleteIcon {
-  margin-left: auto;
   font-size: 1.5rem;
   cursor: pointer;
 }

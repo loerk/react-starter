@@ -55,7 +55,7 @@ function HackerNews() {
         {showLatest ? "show saved News" : "show latest News"}
       </button>
       {isLoading ? <h3>is Loading...</h3> : null}
-      <ul className="NewsList">
+      <ul className="newsList">
         {showLatest
           ? latestNews.hits.map((item) =>
               item.url ? (
