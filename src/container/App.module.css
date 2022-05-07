@@ -24,8 +24,9 @@ body {
 
 nav {
   text-align: start;
-  margin-left: 2rem;
+  margin-left: 2rem auto;
   margin-top: 8rem;
+  padding-left: 1rem;
   /* width: 250px;
   display: flex;
   position: fixed;

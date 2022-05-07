@@ -23,7 +23,7 @@
 .scrollContainer {
   padding-left: 2rem;
   padding-right: 2rem;
-  margin-top: 8rem;
+  margin-top: 2rem;
   margin-bottom: 8rem;
   overflow: scroll;
   height: 80vh;
@@ -33,4 +33,10 @@
 
 .scrollContainer::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .scrollContainer {
+    margin-top: 5rem;
+  }
 }
