@@ -19,3 +19,18 @@
     }
   }
 }
+
+.scrollContainer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  overflow: scroll;
+  height: 80vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
