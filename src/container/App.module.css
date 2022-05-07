@@ -38,7 +38,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   margin: 1rem;
   font-weight: bolder;
-  font-size: clamp(3rem, 0.4rem + 5.3333vw, 5rem);
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
   text-transform: uppercase;
   -webkit-text-stroke: 1.5px black;
 }
@@ -49,6 +49,7 @@ nav button {
 }
 
 header {
+  width: 100%;
   border-bottom: 1px solid black;
   margin-bottom: 3rem;
   position: fixed;
